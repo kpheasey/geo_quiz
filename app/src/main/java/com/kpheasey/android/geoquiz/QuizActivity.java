@@ -10,7 +10,6 @@ import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
-import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -20,8 +19,7 @@ public class QuizActivity extends AppCompatActivity {
 
     private Button mTrueButton;
     private Button mFalseButton;
-    private ImageButton mNextImageButton;
-    private ImageButton mPrevImageButton;
+    private Button mNextButton;
     private TextView mQuestionTextView;
 
     private Question[] mQuestionBank = new Question[] {
@@ -44,15 +42,6 @@ public class QuizActivity extends AppCompatActivity {
         updateQuestion();
     }
 
-    private void prevQuestion() {
-        if (mCurrentIndex <= 0) {
-            mCurrentIndex = mQuestionBank.length - 1;
-        } else {
-            mCurrentIndex--;
-        }
-
-        updateQuestion();
-    }
 
     private void checkAnswer(boolean userPressedTrue) {
         boolean answerIsTrue = mQuestionBank[mCurrentIndex].isAnswerTrue();
@@ -101,21 +90,12 @@ public class QuizActivity extends AppCompatActivity {
             }
         });
 
-        mNextImageButton = (ImageButton) findViewById(R.id.next_button);
-        mNextImageButton.setOnClickListener(new View.OnClickListener() {
+        mNextButton = (Button) findViewById(R.id.next_button);
+        mNextButton.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View v) {
                 nextQuestion();
-            }
-        });
-
-        mPrevImageButton = (ImageButton) findViewById(R.id.prev_button);
-        mPrevImageButton.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View v) {
-                prevQuestion();
             }
         });
 
