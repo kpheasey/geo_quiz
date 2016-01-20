@@ -16,6 +16,7 @@ import android.widget.Toast;
 public class QuizActivity extends AppCompatActivity {
 
     private static final String TAG = "QuizActivity";
+    private static final String KEY_INDEX = "index";
 
     private Button mTrueButton;
     private Button mFalseButton;
@@ -103,15 +104,6 @@ public class QuizActivity extends AppCompatActivity {
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
     }
 
 
