@@ -21,6 +21,7 @@ public class CheatActivity extends AppCompatActivity {
     private boolean mAnswerIsTrue;
 
     private TextView mAnswerTextView;
+    private TextView mBuildVersionTextView;
     private Button mShowAnswer;
 
     public static Intent newIntent(Context packageContext, boolean answerIsTrue) {
@@ -57,9 +58,8 @@ public class CheatActivity extends AppCompatActivity {
                     int cx = mShowAnswer.getWidth() / 2;
                     int cy = mShowAnswer.getHeight() / 2;
                     float radius = mShowAnswer.getWidth();
-                    Animator anim = null;
 
-                    anim = ViewAnimationUtils
+                    Animator anim = ViewAnimationUtils
                             .createCircularReveal(mShowAnswer, cx, cy, radius, 0);
                     anim.addListener(new AnimatorListenerAdapter() {
                         @Override
@@ -76,6 +76,9 @@ public class CheatActivity extends AppCompatActivity {
                 }
             }
         });
+
+        mBuildVersionTextView = (TextView) findViewById(R.id.build_version_text_view);
+        mBuildVersionTextView.setText("API Level " + Build.VERSION.SDK_INT);
 
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
