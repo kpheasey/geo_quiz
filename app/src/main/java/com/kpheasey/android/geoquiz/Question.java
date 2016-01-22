@@ -1,12 +1,10 @@
 package com.kpheasey.android.geoquiz;
 
-/**
- * Created by kevin on 1/19/16.
- */
 public class Question {
 
     private int mTextResId;
     private boolean mAnswerTrue;
+    private boolean mIsCheater = false;
 
     public Question(int textResId, boolean answerTrue) {
         mTextResId = textResId;
@@ -27,5 +25,13 @@ public class Question {
 
     public void setAnswerTrue(boolean answerTrue) {
         mAnswerTrue = answerTrue;
+    }
+
+    public boolean isCheater() {
+        return mIsCheater;
+    }
+
+    public void setIsCheater(boolean isCheater) {
+        mIsCheater = isCheater;
     }
 }
